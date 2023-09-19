@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 
 // ! 일정이름, 카테고리, 설명, 날짜, 시간, 일정번호
-public class SchedulePostRequestBodyDto {
+public class PatchTaskRequestBodyDto {
     @NotBlank
     private String scheduleName;
     @NotBlank
@@ -24,4 +24,6 @@ public class SchedulePostRequestBodyDto {
     private String scheduleDate;
     @NotBlank
     private String scheduleTime;
+    
+    private Integer scheduleNumber;
 }
