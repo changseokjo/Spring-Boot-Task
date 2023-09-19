@@ -23,7 +23,7 @@ public class TaskController {
 
     // ! 일정 불러오기
     @GetMapping("/{taskNumber}")
-    public ResponseEntity<ScheduleResponseDto.getScheduleDto> getScheduleEntity(@PathVariable Integer taskNumber) {
+    public ResponseEntity<ScheduleResponseDto.getScheduleDto> getScheduleEntity(@PathVariable("taskNumber") Integer taskNumber) {
         ScheduleResponseDto.getScheduleDto responseBody = new ScheduleResponseDto.getScheduleDto("0", "0", 
         null, null, null, null, null, null);
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
@@ -38,14 +38,14 @@ public class TaskController {
 
     // ! 일정 수정하기
     @PatchMapping("/{taskNumber}")
-    public ResponseEntity<ScheduleResponseDto.patchScheduleDto> patchScheduleEntity(@PathVariable Integer taskNumber, @Valid @RequestBody SchedulePatchRequestBodyDto requestBody) {
+    public ResponseEntity<ScheduleResponseDto.patchScheduleDto> patchScheduleEntity(@PathVariable("taskNumber") Integer taskNumber, @Valid @RequestBody SchedulePatchRequestBodyDto requestBody) {
         ScheduleResponseDto.patchScheduleDto responseBody = new ScheduleResponseDto.patchScheduleDto("3", "4");
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
     }
 
     // ! 일정 삭제하기
     @DeleteMapping("/{taskNumber}")
-    public ResponseEntity<ScheduleResponseDto.deleteScheduleDto> deleteSchedulEntity(@PathVariable Integer taskNumber) {
+    public ResponseEntity<ScheduleResponseDto.deleteScheduleDto> deleteSchedulEntity(@PathVariable("taskNumber") Integer taskNumber) {
         ScheduleResponseDto.deleteScheduleDto responseBody = new ScheduleResponseDto.deleteScheduleDto("5", "6");
         return ResponseEntity.status(HttpStatus.OK).body(responseBody);
     }
